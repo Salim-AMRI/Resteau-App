@@ -1,0 +1,16 @@
+.Lo {
+  padding-right: 50%;
+  padding-left: 5%;
+  width: 10%;
+  margin-bottom: 1%;
+}
+
+@media only screen and (max-width: 1100px) {
+  .Lo {
+  padding-right: 0;
+  padding-left: 0;
+  width: 20%;
+  margin-top: 2%;
+  margin-bottom: 0;
+  }
+}

@@ -1,0 +1,130 @@
+.App {
+  text-align: center;
+  font-family: fantasy;
+}
+
+.App-footer {
+  background-color: #282c34;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.citation {
+  padding-top: 2%;
+  font-style: italic;
+  font-size: larger;
+}
+
+h1 {
+  font-size: 300%;
+  text-transform: uppercase;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.carte {
+  border-bottom: #000000 solid 3px;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 6px 6px 12px #221313;
+  margin: 2%;
+  padding: 1%;
+  width: 300px;
+}
+
+.menu {
+  width: 200px;
+  border-radius: 50%;
+  transition: all 0.8s;
+}
+
+.menu:hover {
+  width: 250px;
+}
+
+button {
+  font-size: medium;
+  background-color: yellow;
+  font-family: fantasy;
+  border: #251a1a5e solid;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 6px 6px 12px #221313;
+}
+
+button:hover {
+  background-color: rgb(117, 117, 45);
+  color: aliceblue;
+}
+
+.Sin {
+  background-image: url(https://www.leparadisdufruit.fr/wp-content/uploads/2020/05/CONTACT.jpg);
+  background-position: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 20px;
+}
+
+.Siin {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 2%;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.Siin input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: fantasy;
+}
+
+.Siin button {
+  background-color: #ebc20b;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: medium;
+  color: rgb(19, 17, 17);
+  padding: 14px 20px;
+  margin:4% 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.Siin button:hover {
+  background-color: white;
+  color: hsl(0, 0%, 0%);
+  border: 1px solid hsl(44, 46%, 32%);
+}
+
+.Siin button.btn{
+  background-color: white;
+  font-size: large;
+  color: rgb(19, 17, 17);
+  margin-bottom: 10%;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 0%;
+}
+
+.Siin button.btn:hover,
+.Siin button.btn:focus {
+  background-color: rgb(145, 136, 136);
+  color: hsl(0, 0%, 100%);
+  border: none;
+}
+
+
