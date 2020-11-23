@@ -9,7 +9,7 @@ import {
   TOT_PRIX,
   MOINS_UN,
   PLUS_UN,
-  GET_ALL_USER
+  GET_ALL_USER,
 } from "./types";
 
 /* add  user */
@@ -54,13 +54,7 @@ export const addToPanier = (payload) => ({
 
 export function selectFood(el) {
   return (dispatch) =>
-    Axios.post(`http://localhost:3000/panier`, {
-      id: el.id,
-      photo: el.photo,
-      name: el.name,
-      compo: el.compo,
-      prix: el.prix,
-    })
+    Axios.post(`http://localhost:3000/panier`, el)
       .then((res) => dispatch(addToPanier(el)))
       .catch((err) => console.log(err));
 }
@@ -79,7 +73,7 @@ export function getPanierFromApi() {
     );
 }
 
-/*delete food */
+/* delete food */
 
 export const deleteFoods = (payload) => ({
   type: DELETE_FOODS,
@@ -88,9 +82,9 @@ export const deleteFoods = (payload) => ({
 
 export function deletePanierFromApi(id) {
   return (dispatch) =>
-    Axios.delete("http://localhost:3000/panier/" + id)
-      .then((res) => dispatch(deleteFoods(res.data)))
-      .catch((err) => console.log(err));
+    Axios.delete("http://localhost:3000/panier/" + id).then((res) =>
+      dispatch(getAllPanier())
+    );
 }
 
 /* calcule de prix total */
@@ -112,11 +106,33 @@ export const plusUn = (payload) => ({
   payload,
 });
 
+/*
+export function plusUn(el, id) {
+  return (dispatch) =>
+    Axios.patch("http://localhost:3000/panier" + id, el).then((res) => {
+      {
+        console.log(res.data);
+        dispatch(plusun(el.data));
+      }
+    });
+}
+*/
+
 export const moinsUn = (payload) => ({
   type: MOINS_UN,
   payload,
 });
 
+/*
+export function moinsUn(el, id) {
+  return (dispatch) =>
+    Axios.patch("http://localhost:3000/panier" + id, el).then((res) => {
+      {
+        console.log(res.data);
+        dispatch(moinsun(el.data));
+      }
+    });
+}*/
 // Get users
 
 export const getAlluser = (payload) => ({
@@ -124,10 +140,10 @@ export const getAlluser = (payload) => ({
   payload,
 });
 
-export  function GetUsersFromApi() {
+export function GetUsersFromApi() {
   return (dispatch) =>
-  Axios.get("http://localhost:3000/user").then((res) =>
-  { dispatch(getAlluser(res.data))
-     console.log(res.data)
-  })
+    Axios.get("http://localhost:3000/user").then((res) => {
+      dispatch(getAlluser(res.data));
+      console.log(res.data);
+    });
 }

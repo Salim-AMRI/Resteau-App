@@ -1,15 +1,16 @@
 import { PLUS_UN, MOINS_UN } from "../Action/types";
 
 const initialState = {
-  quantité: 1,
+  id: "",
+  qtite: "",
 };
 
 const calcReducer = (state = initialState, action) => {
   if (action.type === PLUS_UN) {
-    return { quantité: state.quantité + 1 };
+    return { qtite: state.qtite + 1 };
   } else if (action.type === MOINS_UN) {
-    if (state.quantité > 1) {
-      return { quantité: state.quantité - 1 };
+    if (state.qtite > 1) {
+      return { qtite: state.qtite - 1 };
     }
   }
   return state;

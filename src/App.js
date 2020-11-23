@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Nav />
-        <Route exact path="/connexion" component={Connexion} />
+        <Route exact path="/" component={Connexion} />
         <Route exact path="/home" component={Carte} />
         <Route exact path="/panier" component={Commande} />
         <Route exact path="/signup" component={Deconnexion} />

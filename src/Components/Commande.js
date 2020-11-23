@@ -1,30 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
+  deletePanierFromApi,
   getPanierFromApi,
-  deleteFoods,
   totalPrice,
   sumPrice,
-  moinsUn,
   plusUn,
+  moinsUn,
 } from "../Action/Actions";
 
 class Order extends Component {
+  state = {
+    Quantité: 1,
+  };
   componentDidMount() {
     this.props.getAllPanier();
+    
   }
 
   render() {
-    console.log(this.props.quantité.quantité);
     console.log(this.props.panier.id);
     const { panier } = this.props;
     const prixPanier = (
       <span>
-        {panier.reduce(
-          (a, el) =>
-            a + Number.parseFloat(el.prix * this.props.quantité.quantité),
-          0
-        )}
+        {panier.reduce((a, el) => a + Number.parseFloat(el.prix * el.qtite), 0)}
       </span>
     );
     const foodPanier = panier.length ? (
@@ -36,25 +35,58 @@ class Order extends Component {
               style={{ fontSize: "x-large", cursor: "pointer" }}
               role="img"
               aria-label="Opps! Supprimer!"
-              onClick={() => this.props.delete(el.id)}
+              onClick={() => {
+                this.props.delete(el.id);
+              }}
             >
               🗑️
             </span>
+
             <h2>{el.name}</h2>
 
             <img className="menu" src={el.photo} alt="select food" />
             <p>Prix : {el.prix} DNT </p>
             <div>
               Quantité :{" "}
-              <span className="qte" onClick={this.props.moins}>
+              <span
+                className="qte"
+                aria-label="Enlever 1"
+                onClick={() =>
+                  this.props.decriment(
+                    {
+                      photo: el.photo,
+                      name: el.name,
+                      compo: el.compo,
+                      qtite: el.qtite--,
+                      prix: el.prix,
+                    },
+                    el.id
+                  )
+                }
+              >
                 ◄
               </span>
-              {this.props.quantité.quantité}{" "}
-              <span className="qte" onClick={this.props.plus}>
+              {el.qtite}{" "}
+              <span
+                className="qte"
+                aria-label="Ajouter 1"
+                onClick={() =>
+                  this.props.incriment(
+                    {
+                      photo: el.photo,
+                      name: el.name,
+                      compo: el.compo,
+                      qtite: el.qtite++,
+                      prix: el.prix,
+                    },
+                    el.id
+                  )
+                }
+              >
                 ►
               </span>{" "}
             </div>
-            <p>Total : {el.prix * this.props.quantité.quantité} DNT</p>
+            <p>Total : {el.prix * el.qtite} DNT</p>
           </div>
         );
       })
@@ -88,11 +120,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getAllPanier: () => dispatch(getPanierFromApi()),
-  delete: (id) => dispatch(deleteFoods(id)),
   total: () => dispatch(totalPrice()),
   sum: () => dispatch(sumPrice()),
-  plus: (payload) => dispatch(plusUn(payload)),
-  moins: (payload) => dispatch(moinsUn(payload)),
+  decriment: (el, id) => dispatch(moinsUn(el, id)),
+  incriment: (el, id) => dispatch(plusUn(el, id)),
+  delete: (id) => dispatch(deletePanierFromApi(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Order);

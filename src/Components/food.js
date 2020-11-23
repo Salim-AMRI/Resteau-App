@@ -5,8 +5,9 @@ import { getFoodsFromApi, selectFood } from "../Action/Actions";
 class Food extends Component {
   componentDidMount() {
     this.props.getAllFoods();
-  }$
-  
+  }
+  $;
+
   render() {
     const { foods } = this.props;
     const foodMenu = foods.length ? (
@@ -17,7 +18,18 @@ class Food extends Component {
             <img className="menu" src={el.photo} alt="Mon Menu" />
             <p>{el.compo}</p>
             <p>{el.prix} DNT</p>
-            <button title="Click et savour" onClick={()=>this.props.selectFood(el)}>
+            <button
+              title="Click et savour"
+              onClick={() =>
+                this.props.selectFood({
+                  photo: el.photo,
+                  name: el.name,
+                  compo: el.compo,
+                  qtite: 1,
+                  prix: el.prix,
+                })
+              }
+            >
               Ajouter
             </button>
           </div>

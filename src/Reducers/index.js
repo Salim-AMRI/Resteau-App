@@ -9,7 +9,7 @@ import totalReducer from './TotalFood';
 const allReducers = combineReducers({
   foods: foodReducer ,
    user: userReducer , 
-   quantité: calcReducer, 
+   qtite: calcReducer, 
    total: totalReducer 
 });
 
