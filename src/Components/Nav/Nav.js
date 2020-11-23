@@ -1,5 +1,4 @@
 import React from "react";
-import "./Nav.css";
 import Link from "./Links/Link";
 import Logo from "./Logo/Logo";
 

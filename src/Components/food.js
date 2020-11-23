@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { getFoodsFromApi, selectFood } from "../Action/Actions";
 
 class Food extends Component {
+  componentDidMount() {
+    this.props.getAllFoods();
+  }$
+  
   render() {
     const { foods } = this.props;
     const foodMenu = foods.length ? (
       foods.map((el) => {
         return (
           <div className="carte" key={el.id}>
-            <h2>{el.name.toUpperCase()}</h2>
-            <img className="menu" src={el.photo} />
-            <p>{el.compo.toUpperCase()}</p>
-            <button title="Click et savour">{el.prix} DNT</button>
+            <h2>{el.name}</h2>
+            <img className="menu" src={el.photo} alt="Mon Menu" />
+            <p>{el.compo}</p>
+            <p>{el.prix} DNT</p>
+            <button title="Click et savour" onClick={()=>this.props.selectFood(el)}>
+              Ajouter
+            </button>
           </div>
         );
       })
@@ -29,8 +37,14 @@ class Food extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    foods: state.foods,
+    foods: state.foods.foods,
+    panier: state.foods.panier,
   };
 };
 
-export default connect(mapStateToProps)(Food);
+const mapDispatchToProps = (dispatch) => ({
+  getAllFoods: () => dispatch(getFoodsFromApi()),
+  selectFood: (data) => dispatch(selectFood(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Food);

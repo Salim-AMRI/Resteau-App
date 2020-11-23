@@ -1,17 +1,35 @@
 import React from "react";
 import "./App.css";
-import Food from "./Components/food";
-import Nav from "./Components/Nav/Nav"
-import Foot from "./Components/foot";
-import SingIn from "./Components/SingIn";
+import { BrowserRouter, Route } from "react-router-dom";
+import Nav from "./Components/Nav/Nav";
+import Carte from "./Components/Nav/Carte";
+import Commande from "./Components/Nav/Commande";
+import Connexion from "./Components/Nav/Connexion";
+import Deconnexion from "./Components/Nav/Decnx";
+import Auto from "./Components/Auten";
+
+//json-server --watch db.json
 
 function App() {
   return (
-    <div className="App">
-      <Nav />
-      <Food />
-      <Foot />
+    <BrowserRouter>
+      <div className="App">
+        <Nav />
+        <Route exact path="/connexion" component={Connexion} />
+        <Route exact path="/home" component={Carte} />
+        <Route exact path="/panier" component={Commande} />
+        <Route exact path="/signup" component={Deconnexion} />
+        <Route path="/auto">
+          <Auto />
+        </Route>
+        <Route path="/cxn">
+          <Connexion />
+        </Route>
+        <Route path="/carte">
+          <Carte />
+        </Route>
       </div>
+    </BrowserRouter>
   );
 }
 

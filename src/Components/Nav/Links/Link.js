@@ -1,5 +1,4 @@
 import React from "react";
-import "./Link.css";
 
 /*
 const list = ["Accueil", "Equipe", "A propos", "Contact"];
@@ -18,10 +17,10 @@ function Link() {
 function Link() {
   return (
     <div className="link">
-    <a href="#">Carte</a>
-    <a href="#">Commande</a>
-    <a href="#">Connexion</a>
-      <a href="#">Deconnexion</a>
+      <a href="/connexion">Connexion</a>
+      <a href="/home">Carte</a>
+      <a href="/panier">Commande</a>
+      <a href="/signup">Deconnexion</a>
     </div>
   );
 }
