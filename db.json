@@ -64,40 +64,7 @@
       "prix": "6.000"
     }
   ],
-  "panier": [
-    {
-      "photo": "https://www.leparadisdufruit.fr/wp-content/uploads/2020/05/carte-Fish-_-chips.jpg",
-      "name": "STREET PARADIS",
-      "compo": "FALAFEL EN FÊTE, FISH & CHIPS, BURGGIE’S ® Comme un burger, VEGAN BURGER",
-      "qtite": 1,
-      "prix": "28.000",
-      "id": 4
-    },
-    {
-      "photo": "https://www.leparadisdufruit.fr/wp-content/uploads/2020/05/carte-Super-bowl-falafel.jpg",
-      "name": "SUPER BOWL ÉNERGIE",
-      "compo": "VITAMINÉ DÉTOX, Sashimi de saumon frais, Falafel de courgette, DELUXE Mer Rouge",
-      "qtite": 1,
-      "prix": "26.500",
-      "id": 6
-    },
-    {
-      "photo": "https://www.leparadisdufruit.fr/wp-content/uploads/2020/05/carte-item-01.jpg",
-      "name": "MOJITOS",
-      "compo": "MOJITO FRUIT",
-      "qtite": 1,
-      "prix": "5.500",
-      "id": 7
-    },
-    {
-      "photo": "https://www.leparadisdufruit.fr/wp-content/uploads/2020/06/carte-PDF_09092019-_20.jpg",
-      "name": "COCKTAILS",
-      "compo": "fraise, coco, mangue ou passion framboise",
-      "qtite": 1,
-      "prix": "4.000",
-      "id": 8
-    }
-  ],
+  "panier": [],
   "user": [
     {
       "name": "amira",
@@ -108,7 +75,7 @@
     {
       "name": "salim",
       "mail": "salim@gmail.co",
-      "pass": "19872020salim",
+      "pass": "1987!!2020",
       "id": 2
     },
     {
@@ -116,6 +83,18 @@
       "mail": "seif@co.co",
       "pass": "seif123!",
       "id": 3
+    },
+    {
+      "name": "achref",
+      "mail": "ach@co.co",
+      "pass": "2020!1985",
+      "id": 4
+    },
+    {
+      "name": "",
+      "mail": "",
+      "pass": "",
+      "id": 5
     }
   ]
 }

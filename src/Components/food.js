@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getFoodsFromApi, selectFood } from "../Action/Actions";
+import { getFoodsFromApi, selectFood } from "../Action/menuActions";
 
 class Food extends Component {
   componentDidMount() {
@@ -50,7 +50,6 @@ class Food extends Component {
 const mapStateToProps = (state) => {
   return {
     foods: state.foods.foods,
-    panier: state.foods.panier,
   };
 };
 

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postUser } from "../Action/Actions";
+import { postUser } from "../Action/userActions";
 import { Link } from "react-router-dom";
 
 const SingIn = ({ addPerson }) => {
   const [userName, setUserName] = useState("");
   const [userMail, setUserMail] = useState("");
   const [userPass, setUserPass] = useState("");
+  const [userRole, setUserRole] = useState("Client");
 
   return (
     <div className="Sin">
@@ -18,6 +19,7 @@ const SingIn = ({ addPerson }) => {
         </Link>
 
         <form>
+          
           <span>Nom d'utilisateur</span>
           <input
             type="text"
@@ -43,6 +45,13 @@ const SingIn = ({ addPerson }) => {
             value={userPass}
             onChange={(e) => setUserPass(e.target.value)}
           />
+          <span>Je suis</span>
+          <input
+            type="text"
+            required
+            value={userRole}
+            onChange={(e) => setUserRole("Administrateur")}
+          />
           <Link to="/carte">
             <button
               onClick={() =>
@@ -50,6 +59,7 @@ const SingIn = ({ addPerson }) => {
                   name: userName,
                   mail: userMail,
                   pass: userPass,
+                  role: userRole
                 })
               }
             >
